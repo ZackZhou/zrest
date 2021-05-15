@@ -12,3 +12,10 @@ clone 到本地后，命令行运行
 1. 根据情况修改　gradle.properties 中的　host
 2. 将接口抽象成模型类加到：　src/test/groovy/models　下面　－－　这一步可以通过自动化工具，将所有接口一次性加到此package下。　如：解析swagger 得到所有请求模型
 3. src/test/groovy/testcases下面添加测试用例
+
+报告示例：
+![image](https://github.com/ZackZhou/zrest/blob/main/images/Graphs.png)
+![image](https://github.com/ZackZhou/zrest/blob/main/images/Packages.png)
+
+用例格式：
+![image](https://github.com/ZackZhou/zrest/blob/main/images/Case_Structure.png)
