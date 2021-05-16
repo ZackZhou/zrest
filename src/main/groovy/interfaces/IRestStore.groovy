@@ -8,7 +8,7 @@ package interfaces
  * @version:
  */
 
-interface IStorability {
+interface IRestStore {
     def get_store(String key)
 
     def set_store(String key, Object value)

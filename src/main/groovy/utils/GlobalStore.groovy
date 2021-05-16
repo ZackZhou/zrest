@@ -1,7 +1,7 @@
 package utils
 
 import groovy.util.logging.Log4j
-import interfaces.IStorability
+import interfaces.IRestStore
 import org.testng.Assert
 
 /**
@@ -13,7 +13,7 @@ import org.testng.Assert
  */
 
 @Log4j
-class GlobalStore implements IStorability {
+class GlobalStore implements IRestStore {
     //used to store step values
     protected Map stores = new HashMap<String, Object>()
 

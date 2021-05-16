@@ -5,6 +5,6 @@ class List_Get extends RestBaseModel {
         url = "/list"
         method = "get"
 
-        headers = ['Accept':'application/json']
+        headers = ['Accept': 'application/json']
     }
 }

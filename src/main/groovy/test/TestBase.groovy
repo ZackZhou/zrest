@@ -5,7 +5,7 @@ import categories.RequestSpecificationExtend
 import categories.ResponseBodyExtractionOptionsExtend
 import categories.ValidatableResponseOptionsExtend
 import groovy.util.logging.Log4j
-import interfaces.IStorability
+import interfaces.IRestStore
 import org.testng.Assert
 import utils.GlobalStore
 
@@ -19,7 +19,7 @@ import utils.GlobalStore
 
 //保持测试父类的功能单一性
 @Log4j
-class TestBase implements IStorability {
+class TestBase implements IRestStore {
     //打开category， 使用自定义的RestAssured扩展方法
     List<Class> categories = [RequestSenderOptionsExtend, RequestSpecificationExtend, ResponseBodyExtractionOptionsExtend, ValidatableResponseOptionsExtend]
 

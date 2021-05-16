@@ -28,7 +28,7 @@ class RequestSpecificationExtend {
         closure used to update the json object, the json object comes from get_store
         支持两种方式：
         1.
-            given_studio()
+            given_host()
                 .use(Person_Update_Post)
                 .body(get_store("personInfo")) {
                     it.person_name = person_name + "1"
@@ -37,7 +37,7 @@ class RequestSpecificationExtend {
                     it.operatePerson = "0"
                 }.headers(studio_token).when().call("更新人员信息").then().assertSuccess()
         2.
-             given_studio()
+             given_host()
                 .use(Person_Update_Post)
                 .body(get_store("personInfo")) { Person_Update_Post request ->
                     request.update_info(person_name)
@@ -120,10 +120,10 @@ class RequestSpecificationExtend {
         def requestInstance = request.newInstance()
 
         def requestSpecification = contentType(requestInstance.get_content_type())
-                .headers(requestInstance.get_headers())
-                .queryParams(requestInstance.get_queries())
-                .pathParams(requestInstance.get_paths())
-                .body(requestInstance.get_body())
+            .headers(requestInstance.get_headers())
+            .queryParams(requestInstance.get_queries())
+            .pathParams(requestInstance.get_paths())
+            .body(requestInstance.get_body())
 
         //实例级别别的动态属性，只有此调用链上的 RequestSpecification 实例 才有requestInstance属性
         requestSpecification.metaClass.requestInstance = requestInstance // 动态添加 属性，方便后续的 call 方法调用
@@ -147,10 +147,10 @@ class RequestSpecificationExtend {
             update.call()
 
         def requestSpecification = contentType(requestInstance.get_content_type())
-                .headers(requestInstance.get_headers())
-                .queryParams(requestInstance.get_queries())
-                .pathParams(requestInstance.get_paths())
-                .body(JsonOutput.toJson(body_obj))
+            .headers(requestInstance.get_headers())
+            .queryParams(requestInstance.get_queries())
+            .pathParams(requestInstance.get_paths())
+            .body(JsonOutput.toJson(body_obj))
 
         //实例级别别的动态属性，只有此调用链上的 RequestSpecification 实例 才有requestInstance属性
         requestSpecification.metaClass.requestInstance = requestInstance // 动态添加 属性，方便后续的 call 方法调用
@@ -177,9 +177,9 @@ class RequestSpecificationExtend {
         }
 
         def requestSpecification = contentType(requestInstance.get_content_type())
-                .headers(requestInstance.get_headers())
-                .queryParams(requestInstance.get_queries())
-                .pathParams(requestInstance.get_paths())
+            .headers(requestInstance.get_headers())
+            .queryParams(requestInstance.get_queries())
+            .pathParams(requestInstance.get_paths())
 
         if (args_size == 1)
             requestSpecification.body(requestInstance.get_body())

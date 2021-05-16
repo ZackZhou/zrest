@@ -48,11 +48,11 @@ class Givens {
     //用来设置参数更新策略,比如　原来的　headers map 里面已经有一个key,value, 再一次设置这个key的值时，　使用的是merge 还是　replace 原来值
     RequestSpecification given_general() {
         given().config(RestAssuredConfig.newConfig()
-                .paramConfig(new ParamConfig(ParamConfig.UpdateStrategy.REPLACE
-                        , ParamConfig.UpdateStrategy.REPLACE
-                        , ParamConfig.UpdateStrategy.REPLACE)))
-                .filter(new AllureRestAssured()) // 使得Allure 能够获取　请求的参数与返回信息
-                .log().all()
+            .paramConfig(new ParamConfig(ParamConfig.UpdateStrategy.REPLACE
+                , ParamConfig.UpdateStrategy.REPLACE
+                , ParamConfig.UpdateStrategy.REPLACE)))
+            .filter(new AllureRestAssured()) // 使得Allure 能够获取　请求的参数与返回信息
+            .log().all()
     }
 
     //用来定义一些常用的请求设置
