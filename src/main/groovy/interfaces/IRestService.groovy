@@ -10,14 +10,16 @@ package interfaces
 
 interface IRestService {
     //方法调用
-    IRestService call(String description)
+    IRestService call(String command, String description)
+
+    IRestService waitFor(int secs, String description, Closure closure)
 
     //语法糖
     IRestService then()
 
-    //用来存放中间变量，方便链式编程
-    IRestService store(String key, IRestStore store, Closure closure)
-
     //用来验证call的返回
     IRestService body(Closure closure)
+
+    //用来存放中间变量，方便链式编程
+    IRestService store(String key, IRestStore store, Closure closure)
 }
