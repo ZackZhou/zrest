@@ -7,6 +7,7 @@ import io.qameta.allure.Step
 import io.qameta.allure.model.Parameter
 import io.restassured.config.HeaderConfig
 import io.restassured.config.RestAssuredConfig
+import io.restassured.config.SSLConfig
 import io.restassured.response.Response
 import io.restassured.specification.RequestSenderOptions
 import io.restassured.specification.RequestSpecification
@@ -55,7 +56,10 @@ class RequestSenderOptionsExtend {
         def header_names = pre_headers.keySet().toList()
         if (header_names.size() > 0) {
             assert this instanceof RequestSpecification
-            (this as RequestSpecification).given().config(RestAssuredConfig.newConfig().headerConfig(new HeaderConfig().overwriteHeadersWithName(*header_names)))
+            (this as RequestSpecification).given().config(RestAssuredConfig.newConfig()
+                .headerConfig(new HeaderConfig().overwriteHeadersWithName(*header_names))
+                .sslConfig(new SSLConfig().relaxedHTTPSValidation()) // no need for ssl validate by default
+            )
         }
     }
 

@@ -4,6 +4,7 @@ import groovy.util.logging.Log4j
 import io.qameta.allure.restassured.AllureRestAssured
 import io.restassured.config.ParamConfig
 import io.restassured.config.RestAssuredConfig
+import io.restassured.config.SSLConfig
 import io.restassured.specification.RequestSpecification
 
 import static io.restassured.RestAssured.defaultParser
@@ -50,7 +51,8 @@ class Givens {
         given().config(RestAssuredConfig.newConfig()
             .paramConfig(new ParamConfig(ParamConfig.UpdateStrategy.REPLACE
                 , ParamConfig.UpdateStrategy.REPLACE
-                , ParamConfig.UpdateStrategy.REPLACE)))
+                , ParamConfig.UpdateStrategy.REPLACE))
+            .sslConfig(new SSLConfig().relaxedHTTPSValidation())) // no need for ssl validate by default
             .filter(new AllureRestAssured()) // 使得Allure 能够获取　请求的参数与返回信息
             .log().all()
     }
